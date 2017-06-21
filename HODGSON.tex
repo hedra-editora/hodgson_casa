@@ -1,0 +1,29 @@
+\documentclass[showtrims,11pt]{memoir}
+\usepackage{projeto,hedralogo}
+
+\author{William Hope Hodgson}
+\title{A casa do fim do mundo}
+
+\begin{document}
+
+\include{ROSTO}
+\include{CREDITOS}
+
+\clearpage
+
+\setcounter{tocdepth}{0}
+\setcounter{secnumdepth}{-2}
+
+\renewcommand{\contentsname}{Sumário}
+\tableofcontents*
+
+\cleardoublepage
+
+\pagestyle{plain}
+\copypagestyle{chapter}{plain}
+
+%\include{INTRO}
+\include{TEXTO}
+\include{COLOFAO}
+
+\end{document}

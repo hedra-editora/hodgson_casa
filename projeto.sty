@@ -1,0 +1,199 @@
+\RequirePackage{textcase}
+\RequirePackage[protrusion=true,expansion]{microtype}
+\RequirePackage{lastpage}
+\RequirePackage{graphicx}
+\RequirePackage{textcomp}
+\RequirePackage{floatpag}
+
+\RequirePackage{charter}%[minionint,mathlf]{MinionPro}
+\RequirePackage{ucs}
+\RequirePackage[utf8x]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[brazilian]{babel}
+\defineshorthand{"-}{\discretionary{-}{-}{-}}
+
+%\RequirePackage{polyglossia}
+%\RequirePackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Bauer Bodoni Std 1}
+%\setsansfont[Scale=MatchUppercase,Mapping=tex-text]{Akzidenz-Grotesk BQ Bold Condensed}
+%\setmonofont[Scale=MatchLowercase]{Akzidenz-Grotesk BQ Medium Condensed}
+%\setmainlanguage{portuges}
+
+
+\makeatletter
+\makeheadstyles{estilo}{%
+% book changes
+\renewcommand*{\booknamefont}{\bfseries\Huge}
+\renewcommand*{\booknumfont}{\bfseries\Huge}
+\renewcommand*{\booktitlefont}{\bfseries\Huge}
+\renewcommand*{\midbookskip}{\par\vskip 2\onelineskip}%
+% part changes
+\renewcommand*{\partnamefont}{\huge}
+\renewcommand*{\partnumfont}{\huge}
+\renewcommand*{\parttitlefont}{\huge}
+\renewcommand*{\midpartskip}{\par\vskip 2\onelineskip}%
+% chapter
+\setlength{\beforechapskip}{7mm}%
+\setlength{\afterchapskip}{36mm\@plus2mm\@minus1mm}%
+\renewcommand*{\chapnamefont}{\centering\LARGE}%
+\renewcommand*{\chapnumfont}{\centering\LARGE}%
+\renewcommand*{\chaptitlefont}{\centering\LARGE}%
+% section
+\setbeforesecskip{1.2\onelineskip\@plus4mm\@minus2mm}%
+\setaftersecskip{.6\onelineskip\@plus2mm\@minus1mm}%
+\setsecheadstyle{\centering\Large\scshape\MakeTextLowercase}%
+% subsection
+\setbeforesubsecskip{.5\onelineskip}%
+\setaftersubsecskip{.8\onelineskip}%
+\setsubsecheadstyle{\flushleft\Large\scshape\MakeTextLowercase}%
+% paragraph
+\setbeforeparaskip{1.0\onelineskip}%
+\setafterparaskip{1em}%
+\setparaheadstyle{\centering\Large\itshape}%
+}
+
+\makepagestyle{estilo}
+\makeheadposition{estilo}{flushright}{flushleft}{}{}
+\makepsmarks{estilo}{%
+  \nouppercaseheads
+  \createmark{chapter}{both}{nonumber}{}{}
+%  \createmark{section}{right}{nonumber}{}{}
+  \let\sectionmark\@gobble
+  \createplainmark{toc}{both}{\contentsname}
+  \createplainmark{lof}{both}{\listfigurename}
+  \createplainmark{lot}{both}{\listtablename}
+  \createplainmark{bib}{both}{\bibname}
+  \createplainmark{index}{both}{\indexname}
+  \createplainmark{glossary}{both}{\glossaryname}}
+ 
+\makeevenhead{estilo}{\footnotesize\thepage}{}{\scshape\MakeLowercase{\leftmark}}
+\makeoddhead{estilo}{\scshape\MakeLowercase{\rightmark}}{}{\footnotesize\thepage}
+%\makeheadrule{estilo}{\textwidth}{\normalrulethickness}
+\headsep=1em
+
+%\makeevenfoot{estilo}{}{\footnotesize\thepage}{}{}
+%\makeoddfoot{estilo}{}{\footnotesize\thepage}{}{}
+
+\footmarkstyle{\normalfont{\raisebox{3pt}{\tiny#1}}}
+\def\@makefnmark#1{{\tiny \raisebox{3pt}{\@thefnmark}}}
+\skip\footins=7mm\@plus1mm\@minus4mm
+%\show\@makefnmark
+
+\renewcommand{\cftparskip}{0mm}
+\renewcommand{\cftchapterdotsep}{4.5}
+\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\@nameuse{cftchapterdotsep}}}
+\renewcommand{\cftpartfont}{\large}
+\renewcommand{\cftpartformatpnum}{\large}
+\renewcommand{\cftchapterfont}{\normalsize}
+\renewcommand{\cftchapterformatpnum}{\normalsize}
+\renewcommand{\cftbeforechapterskip}{.2em}
+\renewcommand{\cftbeforepartskip}{1.2em}
+\renewcommand{\cftsectionindent}{0ex}
+\renewcommand{\cftsectionfont}{\normalsize}
+\renewcommand{\cftsectionformatpnum}{\normalsize}
+
+\newcounter{@sectionNumCenter}[chapter]% ou [section] caso seja o efeito desejado
+\renewcommand\the@sectionNumCenter{\roman{@sectionNumCenter}}
+\newcommand\sectionitem{%
+   \par\addvspace{1ex plus 1em minus .3ex }%
+   \refstepcounter{@sectionNumCenter}%
+   \bgroup\centering\Large\scshape%
+   \the@sectionNumCenter%
+   \par\nobreak\egroup\par\nobreak%
+   \addvspace{.3ex}%
+}
+
+\makeevenfoot{plain}{}{\footnotesize\thepage}{}{}
+\makeoddfoot{plain}{}{\footnotesize\thepage}{}{}
+
+\AtBeginDocument{%
+\makeatletter
+\fontsize{11pt}{\baselineskip}\selectfont
+\baselineskip=14.4pt\@plus.2pt
+\selectlanguage{brazilian}
+\pagestyle{empty}
+\makeatother
+}%
+
+\makeatother%
+
+\copypagestyle{part}{empty}
+\copypagestyle{chapter}{empty}
+\floatpagestyle{empty}
+\pagestyle{estilo}
+\headstyles{estilo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbinding{8mm}
+\stockaiv 
+%\setstocksize{210mm}{140mm}
+\settrimmedsize{210mm}{140mm}{*}
+%\settypeblocksize{*}{120mm}{1.5}
+\isopage[16]
+
+\setlrmargins{10mm}{*}{1}
+\setulmargins{14.5mm}{*}{1}
+%\setheadfoot{14mm}{16mm}
+%\setheaderspaces{.3cm}{*}{0.15}
+
+\setlength{\trimtop}{3cm}
+\setlength{\trimedge}{\stockwidth} 
+\addtolength{\trimedge}{-\paperwidth}
+\setlength{\trimedge}{0.5\trimedge}
+\quarkmarks
+%\trimFrame
+
+\checkandfixthelayout
+
+\tolerance=1000
+\hyphenpenalty=5000
+\emergencystretch=1pc
+\lefthyphenmin=2
+\righthyphenmin=2
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=9999
+%\raggedbottom
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\blank}{\newpage\ \\\thispagestyle{empty}\pagebreak}
+\newcommand\asterisc{{\smallskip\centering$\ast\,\ast\,\ast$\par\smallskip}}
+
+\renewenvironment{quote}%
+               {\list{}{\small\rightmargin\leftmargin}%
+                \item[]}%
+               {\endlist}
+
+\epigraphtextposition{flushleft}
+\epigraphsourceposition{flushright}
+\epigraphfontsize{\footnotesize}
+\setlength{\epigraphrule}{0pt}
+\setlength{\epigraphwidth}{.7\textwidth}
+
+\newcommand{\ficha}[8][]{
+    \begingroup\bigskip
+      \begin{minipage}{.7\textwidth}
+        \raggedright\fontsize{7pt}{8pt}\selectfont\hyphenpenalty=10000
+        Dados Internacionais de Catalogação na Publicação (CIP)\\
+        (Câmara Brasileira do Livro, SP, Brasil)\\\smallskip
+        \hrule\smallskip
+        #2\par\smallskip
+        #3 \pageref{LastPage}~p.\par\smallskip
+        #1\par\smallskip
+        ISBN\hskip2mm #4\par\smallskip
+        #5\par\smallskip
+        #6\mbox{}\hfill CDD #7\par\smallskip
+        \hrule\smallskip
+        Índices para catálogo sistemático:\\
+        #8\par
+      \end{minipage}
+    \bigskip\endgroup
+}
+
+%\footnoteInSection para colocar notas em seções, capítulos etc. 
+\RequirePackage{manyfoot}
+\newcommand{\footnoteInSection}[1]{\NoCaseChange{\linespread{1.0}\mbox{}\protect\Footnote{{\large$\ast$}}{#1}}}
+
