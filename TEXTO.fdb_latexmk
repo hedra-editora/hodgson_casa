@@ -1,12 +1,12 @@
 # Fdb version 3
-["pdflatex"] 1498673384 "TEXTO.tex" "TEXTO.pdf" "TEXTO" 1498673399
+["pdflatex"] 1498673645 "TEXTO.tex" "TEXTO.pdf" "TEXTO" 1498673659
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1479649810 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm" 1479649815 1300 63a6111ee6274895728663cf4b4e7e81 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1479649815 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1479649825 31669 df537245012f3e5f05bdc55644b7a3df ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1492624672 3899101 a8a5857843c30922e5e4c9b7d7cc5f25 ""
   "TEXTO.aux" 1409515244 6251 ddb6e80924aa50c6f73894e5129e34c6 ""
-  "TEXTO.tex" 1498673347 299377 f122212db6fe73733da836cfd6746550 ""
+  "TEXTO.tex" 1498673549 295800 4708a7565102819b80628bad7aaef656 ""
   (generated)
   "TEXTO.pdf"
   "TEXTO.log"
